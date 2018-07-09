@@ -43,7 +43,7 @@ print "training time for fitting:", round(time()-t0, 3), "s"
 # initialize the time t0
 t0 = time()
 # predict for the testing set
-clf.predict(features_test)
+pred = clf.predict(features_test)
 # print the total training time
 print "training time for prediction:", round(time()-t0, 3), "s"
 
@@ -51,3 +51,6 @@ print "training time for prediction:", round(time()-t0, 3), "s"
 # print the score
 print clf.score(features_test, labels_test)
 
+# count total number of occurence of both the classes
+from collections import Counter
+print(Counter(pred))
