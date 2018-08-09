@@ -13,7 +13,7 @@ def parseOutText(f):
         example use case:
         f = open("email_file_name.txt", "r")
         text = parseOutText(f)
-        
+            
         """
 
 
