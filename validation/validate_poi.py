@@ -10,7 +10,7 @@
     After that, it's not our code anymore--it's yours!
 """
 
-import pickle
+import cPickle as pickle
 import sys
 sys.path.append("../tools/")
 from feature_format import featureFormat, targetFeatureSplit
@@ -25,8 +25,21 @@ features_list = ["poi", "salary"]
 data = featureFormat(data_dict, features_list)
 labels, features = targetFeatureSplit(data)
 
-
+from sklearn.model_selection import train_test_split
+features_train, features_test, labels_train, labels_test = train_test_split(features, labels,
+                                                                            random_state=42, test_size=0.3)
 
 ### it's all yours from here forward!  
+from sklearn.tree import DecisionTreeClassifier
 
+# Define classifier
+clf = DecisionTreeClassifier()
 
+# fit the model
+clf.fit(features_train, labels_train)
+
+# Predict for testing set
+pred = clf.predict(features_test)
+
+# Print confidence score
+print(clf.score(features_test, labels_test))
