@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-import pickle
+import cPickle as pickle
 sys.path.append("../tools/")
 
 from feature_format import featureFormat, targetFeatureSplit
