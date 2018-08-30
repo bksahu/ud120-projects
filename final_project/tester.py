@@ -10,7 +10,7 @@
     that process should happen at the end of poi_id.py
 """
 
-import pickle
+import cPickle as pickle
 import sys
 from sklearn.cross_validation import StratifiedShuffleSplit
 sys.path.append("../tools/")
